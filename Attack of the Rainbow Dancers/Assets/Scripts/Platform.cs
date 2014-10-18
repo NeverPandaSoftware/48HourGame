@@ -7,12 +7,16 @@ public class Platform : MonoBehaviour
     //private float timer = 5;
     BeatObserver beatObserver;
 
+    private bool startState;
+
     public bool alwaysActive = false;
     public bool enabled = true;
 
 	// Use this for initialization
 	void Start ()
     {
+        startState = enabled;
+
         beatObserver = GetComponent<BeatObserver>();
 
         if (!alwaysActive)
@@ -51,5 +55,10 @@ public class Platform : MonoBehaviour
         enabled = true;
         renderer.material.color = Color.green;
         collider2D.enabled = true;
+    }
+
+    public void ResetState()
+    {
+        enabled = startState;
     }
 }

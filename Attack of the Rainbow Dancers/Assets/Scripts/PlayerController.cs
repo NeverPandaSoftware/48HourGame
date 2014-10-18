@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,10 +18,25 @@ public class PlayerController : MonoBehaviour
 
     private float move = 0.0f;
 
+    public Transform checkPointParent;
+
+    public Transform[] checkpoints;
+    private int currentCheckPoint = 0;
+    private float audioResetTime = 20.0f;
+
 	// Use this for initialization
 	void Start ()
     {
         anim = GetComponent<Animator>();
+
+        List<Transform> checkpts = new List<Transform>();
+
+        foreach (Transform child in checkPointParent)
+        {
+            checkpts.Add(child);
+        }
+
+        checkpoints = checkpts.ToArray();
 	}
 	
 	// Update is called once per frame
@@ -56,6 +72,9 @@ public class PlayerController : MonoBehaviour
         else if (move < 0 && facingRight)
             Flip();
 
+        if (transform.position.y < -100)
+            Respawn();
+
     }
 
     void Flip()
@@ -67,19 +86,29 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void Respawn()
     {
-        if (col.gameObject.name == "Platform")
+        Debug.Log("RESPAWN");
+        musicPlayer.audio.Stop();
+        transform.position = checkpoints[currentCheckPoint].transform.position;
+
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+
+        foreach (GameObject p in platforms)
         {
-            //grounded = true;
+            p.GetComponent<Platform>().ResetState();
         }
+
+        musicPlayer.GetComponent<BeatSynchronizer>().RestartAudio(audioResetTime, 0);
+        //musicPlayer.audio.Play();
     }
 
-    void OnCollisionExit2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (col.gameObject.name == "Platform")
+        if (other.gameObject.tag == "Checkpoint")
         {
-            //grounded = false;
-        } 
+            Checkpoint cp = other.GetComponent<Checkpoint>();
+            audioResetTime = cp.audioTime;
+        }
     }
 }

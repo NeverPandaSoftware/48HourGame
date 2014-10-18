@@ -121,6 +121,74 @@ MonoBehaviour:
   loopTime: 30
   audioSource: {fileID: 1502349728}
   observers: []
+--- !u!1 &131168959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 131168961}
+  - 61: {fileID: 131168960}
+  - 114: {fileID: 131168962}
+  - 114: {fileID: 131168963}
+  m_Layer: 0
+  m_Name: Checkpoint1
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &131168960
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131168959}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 4.78999996, y: 7.53000021}
+  m_Center: {x: 0, y: 0}
+--- !u!4 &131168961
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131168959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 75.1346741, y: -2.38439178, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1652458122}
+  m_RootOrder: 1
+--- !u!114 &131168962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131168959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2527b33d8fff047b01bab3dcc2c113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatWindow: 10
+  beatMask: 0
+--- !u!114 &131168963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131168959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c48e301ea45eb47b8aebff9dd64480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioTime: 0
+  activated: 0
+  audioSource: {fileID: 1502349727}
 --- !u!1 &148570468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1287,74 @@ MonoBehaviour:
   loopTime: 30
   audioSource: {fileID: 1502349728}
   observers: []
+--- !u!1 &527742107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 527742108}
+  - 61: {fileID: 527742111}
+  - 114: {fileID: 527742110}
+  - 114: {fileID: 527742109}
+  m_Layer: 0
+  m_Name: Checkpoint0
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527742108
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527742107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -43.5173988, y: 2.63820577, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1652458122}
+  m_RootOrder: 0
+--- !u!114 &527742109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527742107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c48e301ea45eb47b8aebff9dd64480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioTime: 0
+  activated: 0
+  audioSource: {fileID: 1502349727}
+--- !u!114 &527742110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527742107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2527b33d8fff047b01bab3dcc2c113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatWindow: 10
+  beatMask: 0
+--- !u!61 &527742111
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527742107}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 4.78999996, y: 7.53000021}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &581134036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1560,8 @@ MonoBehaviour:
     m_Bits: 512
   jumpForce: 800
   musicPlayer: {fileID: 1502349727}
+  checkPointParent: {fileID: 1652458122}
+  checkpoints: []
 --- !u!95 &617711395
 Animator:
   serializedVersion: 3
@@ -2916,6 +3054,56 @@ Prefab:
   m_RootGameObject: {fileID: 157113684}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1652458121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1652458122}
+  - 114: {fileID: 1652458123}
+  m_Layer: 0
+  m_Name: Checkpoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652458122
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652458121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 527742108}
+  - {fileID: 131168961}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+--- !u!114 &1652458123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652458121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96faf835cc7742b4089ec2e980336344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatValue: 9
+  beatScalar: 1
+  beatOffset: 0
+  negativeBeatOffset: 0
+  beatType: 8
+  loopTime: 30
+  audioSource: {fileID: 1502349728}
+  observers:
+  - {fileID: 131168959}
 --- !u!1001 &1715166244
 Prefab:
   m_ObjectHideFlags: 0
