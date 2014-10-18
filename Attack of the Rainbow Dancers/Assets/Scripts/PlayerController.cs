@@ -107,6 +107,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Checkpoint")
         {
+            for (int i = 0; i < checkpoints.Length; i++)
+            {
+                if (other.gameObject == checkpoints[i].gameObject)
+                    currentCheckPoint = i;
+            }
             Checkpoint cp = other.GetComponent<Checkpoint>();
             audioResetTime = cp.audioTime;
         }
