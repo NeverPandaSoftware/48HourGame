@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Mob : MonoBehaviour
 {
-    public float moveSpeed = 3;
+    public float moveSpeed = 0.07f;
 
     public Vector2 resetLocation;
 
@@ -19,7 +19,7 @@ public class Mob : MonoBehaviour
         transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
 	}
 
-    void Reset()
+    public void Reset()
     {
         transform.position = resetLocation;
     }

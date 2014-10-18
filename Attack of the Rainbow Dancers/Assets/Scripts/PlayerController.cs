@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool stoppedToDance = false;
     private bool readyToMove = false;
     private bool canMove = true;
+    private bool finished = true;
 
     public Transform checkPointParent;
 
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             canMove = true;
             readyToMove = false;
+            finished = true;
         }
 	}
 
@@ -100,7 +102,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Dance") && onActive)
         {
-            danceStartBeat = beat;
+            if (finished)
+                danceStartBeat = beat;
         }
 
         if (Input.GetButton("Dance") && onActive)
@@ -160,6 +163,8 @@ public class PlayerController : MonoBehaviour
         musicPlayer.GetComponent<BeatSynchronizer>().RestartAudio(audioResetTime, 0);
 
         transform.position = checkpoints[currentCheckPoint].transform.position;
+        GameObject mob = GameObject.FindGameObjectWithTag("Mob");
+        mob.GetComponent<Mob>().Reset();
     }
 
     void OnTriggerEnter2D(Collider2D other)
