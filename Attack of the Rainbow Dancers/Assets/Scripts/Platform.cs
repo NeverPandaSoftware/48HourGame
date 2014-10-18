@@ -5,7 +5,6 @@ using SynchronizerData;
 public class Platform : MonoBehaviour
 {
     //private float timer = 5;
-    public BeatValue beatValue = BeatValue.None;
     BeatObserver beatObserver;
 
     public bool alwaysActive = false;
@@ -15,8 +14,6 @@ public class Platform : MonoBehaviour
 	void Start ()
     {
         beatObserver = GetComponent<BeatObserver>();
-        if (beatValue == BeatValue.None)
-            alwaysActive = true;
 
         if (!alwaysActive)
         {
