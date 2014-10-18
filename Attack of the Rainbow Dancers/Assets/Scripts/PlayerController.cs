@@ -67,19 +67,11 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (col.gameObject.name == "Platform")
+        if (other.gameObject.tag == "Checkpoint")
         {
-            //grounded = true;
+            Debug.Log(musicPlayer.GetComponent<AudioSource>().audio.time);
         }
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.gameObject.name == "Platform")
-        {
-            //grounded = false;
-        } 
     }
 }
