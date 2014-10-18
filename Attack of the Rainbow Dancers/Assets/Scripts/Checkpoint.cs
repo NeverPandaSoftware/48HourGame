@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
         if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
         {
             audioTime = audioSource.audio.time;
-            Debug.Log("Current time: " + audioTime);
+            //Debug.Log("Current time: " + audioTime);
         }
 	}
 }

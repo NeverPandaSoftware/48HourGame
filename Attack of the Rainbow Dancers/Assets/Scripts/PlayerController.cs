@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject musicPlayer;
 
     private float move = 0.0f;
-    private int beats = 0;
+    private int beat = 3;
+    private int danceStartBeat = 3;
     private bool stoppedToDance = false;
     private bool readyToMove = false;
     private bool canMove = true;
@@ -54,21 +55,20 @@ public class PlayerController : MonoBehaviour
     {
         if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
         {
-            if (stoppedToDance)
-            {
-                if (beats < 3)
-                    beats++;
-                else
-                {
-                    beats = 0;
-                }
-            }
 
-            if (readyToMove && beats == 0)
+            if (beat <= 3)
+                beat++;
+            else
             {
-                canMove = true;
-                stoppedToDance = false;
+                beat = 1;
             }
+            Debug.Log("BEAT: " + beat);
+        }
+
+        if (readyToMove && beat == danceStartBeat)
+        {
+            canMove = true;
+            readyToMove = false;
         }
 	}
 
@@ -87,10 +87,15 @@ public class PlayerController : MonoBehaviour
         else
             move = 0;
 
+        if (Input.GetButtonDown("Dance") && platform.transform.gameObject.GetComponent<Platform>().alwaysActive)
+        {
+            danceStartBeat = beat;
+        }
+
         if (Input.GetButton("Dance") && platform.transform.gameObject.GetComponent<Platform>().alwaysActive)
         {
             canMove = false;
-            stoppedToDance = true;
+            readyToMove = false;
             anim.SetBool("Dance", true);
         }
         else
