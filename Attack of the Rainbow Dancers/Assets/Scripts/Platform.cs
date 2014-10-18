@@ -30,9 +30,9 @@ public class Platform : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
+        if (!alwaysActive)
         {
-            if (!alwaysActive)
+            if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
             {
                 if (enabled)
                     Disable();
@@ -40,11 +40,7 @@ public class Platform : MonoBehaviour
                     Enable();
             }
         }
-
-        /*timer -= Time.deltaTime;
-        if (timer <= 0)
-            Disable();*/
-	}
+    }
 
     void Disable()
     {
