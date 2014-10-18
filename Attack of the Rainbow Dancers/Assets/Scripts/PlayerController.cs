@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
 
     Animator anim;
 
-    bool grounded = false;
+    public bool grounded = false;
     public Transform groundCheck;
     public LayerMask whatIsGround;
-    public float jumpForce = 500;
+    public float jumpForce = 2000;
 
     private float move = 0.0f;
 
@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	
+
 	}
 
     void FixedUpdate()
     {
-        grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
+        //grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
 
         //anim.SetBool("Ground", grounded);
         //anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
@@ -39,6 +39,12 @@ public class PlayerController : MonoBehaviour
         //anim.SetFloat("Speed", Mathf.Abs(move));
 
         rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+
+        if (grounded && Input.GetButtonDown("Jump"))
+        {
+            //anim.SetBool("Ground", false);
+            rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
+        }
 
         if (move > 0 && !facingRight)
             Flip();
@@ -54,5 +60,21 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name == "Platform")
+        {
+            grounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.name == "Platform")
+        {
+            grounded = false;
+        } 
     }
 }
