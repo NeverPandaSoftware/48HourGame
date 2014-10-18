@@ -87,12 +87,14 @@ public class PlayerController : MonoBehaviour
         else
             move = 0;
 
-        if (Input.GetButtonDown("Dance") && platform.transform.gameObject.GetComponent<Platform>().alwaysActive)
+        bool onActive = platform.transform.gameObject.GetComponent<Platform>().alwaysActive;
+
+        if (Input.GetButtonDown("Dance") && onActive)
         {
             danceStartBeat = beat;
         }
 
-        if (Input.GetButton("Dance") && platform.transform.gameObject.GetComponent<Platform>().alwaysActive)
+        if (Input.GetButton("Dance") && onActive)
         {
             canMove = false;
             readyToMove = false;
