@@ -15,7 +15,6 @@ public class BeatSynchronizer : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Beat Synchronizer");
         double initTime = AudioSettings.dspTime;
         audio.PlayScheduled(initTime + startDelay);
         if (OnAudioStart != null)
@@ -26,7 +25,6 @@ public class BeatSynchronizer : MonoBehaviour
 
     public void RestartAudio(float resetTime, float delay)
     {
-        Debug.Log("Beat Synchronizer");
         double initTime = AudioSettings.dspTime;
         audio.time = resetTime;
         audio.PlayScheduled(initTime + delay);
