@@ -18,19 +18,9 @@ public class PlayerController : MonoBehaviour
     public GameObject musicPlayer;
 
     private float move = 0.0f;
-    private int beat = 3;
-    private float beatTime = 0.0f;
-    private int beatResetValue = 3;
-    private int danceStartBeat = 3;
-    private bool stoppedToDance = false;
-    private bool readyToMove = false;
-    private bool canMove = true;
+    private bool dancing = false;
 
-    public Transform checkPointParent;
-
-    public Transform[] checkpoints;
-    private int currentCheckPoint = 0;
-    private float audioResetTime = 0.0f;
+    public Transform startPoint;
 
     private RaycastHit2D platform;
 
@@ -41,85 +31,42 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         beatObserver = GetComponent<BeatObserver>();
-
-        List<Transform> checkpts = new List<Transform>();
-
-        foreach (Transform child in checkPointParent)
-        {
-            checkpts.Add(child);
-        }
-
-        checkpoints = checkpts.ToArray();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
-        {
-            beatTime = musicPlayer.audio.time;
-            if (beat <= 3)
-            {
-                beat++;
-            }
-            else
-            {
-                beat = 1;
-            }
-        }
-
-        if (readyToMove && beat == danceStartBeat)
-        {
-            canMove = true;
-            readyToMove = false;
-        }
+       
 	}
 
     void FixedUpdate()
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
 
-        bool onActive;
-        if (grounded)
-        {
-            platform = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
-            onActive = platform.transform.gameObject.GetComponent<Platform>().alwaysActive;
-        }
-        else
-        {
-            onActive = false;
-        }
-
         anim.SetBool("Ground", grounded);
         anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
 
-        if (musicPlayer.GetComponent<AudioSource>().isPlaying && canMove)
+        if (musicPlayer.GetComponent<AudioSource>().isPlaying)
             move = moveSpeed;
         else
             move = 0;
 
-        if (Input.GetButtonDown("Dance") && onActive)
+        if (Input.GetButton("Dance") && grounded)
         {
-            danceStartBeat = beat;
-        }
-
-        if (Input.GetButton("Dance") && onActive)
-        {
-            canMove = false;
-            readyToMove = false;
+            dancing = true;
             anim.SetBool("Dance", true);
         }
         else
         {
+            dancing = false;
             anim.SetBool("Dance", false);
-            readyToMove = true;
         }
 
         anim.SetFloat("Speed", Mathf.Abs(move));
 
         rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y);
 
-        if (grounded && Input.GetButton("Jump"))
+        if (!dancing && grounded && Input.GetButton("Jump"))
         {
             anim.SetBool("Ground", false);
             rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
@@ -148,7 +95,6 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("RESPAWN");
         musicPlayer.audio.Stop();
-        beat = beatResetValue + 1;
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
 
@@ -157,22 +103,28 @@ public class PlayerController : MonoBehaviour
             p.GetComponent<Platform>().ResetState();
         }
 
-        musicPlayer.GetComponent<BeatSynchronizer>().RestartAudio(audioResetTime, 0);
+        musicPlayer.GetComponent<BeatSynchronizer>().RestartAudio();
 
-        transform.position = checkpoints[currentCheckPoint].transform.position;
+        transform.position = startPoint.transform.position;
+        GameObject mob = GameObject.FindGameObjectWithTag("Mob");
+        mob.GetComponent<Mob>().Reset();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void stopPlatformUpdates()
     {
-        if (other.gameObject.tag == "Checkpoint")
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (GameObject p in platforms)
         {
-            audioResetTime = beatTime;
-            beatResetValue = beat;
-            for (int i = 0; i < checkpoints.Length; i++)
-            {
-                if (other.gameObject == checkpoints[i].gameObject)
-                    currentCheckPoint = i;
-            }
+            p.GetComponent<Platform>().doUpdates = false;
+        }
+    }
+
+    void startPlatformUpdates()
+    {
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (GameObject p in platforms)
+        {
+            p.GetComponent<Platform>().doUpdates = true;
         }
     }
 }

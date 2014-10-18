@@ -19,7 +19,7 @@ public class Mob : MonoBehaviour
         transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
 	}
 
-    void Reset()
+    public void Reset()
     {
         transform.position = resetLocation;
     }

@@ -23,14 +23,13 @@ public class BeatSynchronizer : MonoBehaviour
         }
     }
 
-    public void RestartAudio(float resetTime, float delay)
+    public void RestartAudio()
     {
         double initTime = AudioSettings.dspTime;
-        audio.time = resetTime;
-        audio.PlayScheduled(initTime + delay);
+        audio.PlayScheduled(initTime + startDelay);
         if (OnAudioStart != null)
         {
-            OnAudioStart(initTime + delay);
+            OnAudioStart(initTime + startDelay);
         }
     }
 }

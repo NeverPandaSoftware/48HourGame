@@ -122,74 +122,6 @@ MonoBehaviour:
   audioSource: {fileID: 1502349728}
   observers:
   - {fileID: 953348864}
---- !u!1 &131168959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 131168961}
-  - 61: {fileID: 131168960}
-  - 114: {fileID: 131168962}
-  - 114: {fileID: 131168963}
-  m_Layer: 0
-  m_Name: Checkpoint1
-  m_TagString: Checkpoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &131168960
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131168959}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: 4.78999996, y: 7.53000021}
-  m_Center: {x: 0, y: 0}
---- !u!4 &131168961
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131168959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.5168152, y: -2.38439178, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1652458122}
-  m_RootOrder: 1
---- !u!114 &131168962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131168959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2527b33d8fff047b01bab3dcc2c113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beatWindow: 10
-  beatMask: 0
---- !u!114 &131168963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131168959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c48e301ea45eb47b8aebff9dd64480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioTime: 0
-  activated: 0
-  audioSource: {fileID: 1502349727}
 --- !u!1 &148570468
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &148570472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -341,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &157113688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -481,6 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &250144928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -529,7 +464,7 @@ GameObject:
   - 65: {fileID: 251716073}
   m_Layer: 0
   m_Name: Mob
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,6 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &269941982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -918,6 +854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!114 &356781625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,6 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &451320288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1198,6 +1136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &469728607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1277,7 +1216,7 @@ Transform:
   - {fileID: 2141827719}
   - {fileID: 953348865}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &488556073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,7 +1388,7 @@ GameObject:
   - 114: {fileID: 527742110}
   - 114: {fileID: 527742109}
   m_Layer: 0
-  m_Name: Checkpoint0
+  m_Name: StartPoint
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1465,7 +1404,7 @@ Transform:
   m_LocalPosition: {x: -43.5173988, y: 2.63820577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1652458122}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &527742109
 MonoBehaviour:
@@ -1563,6 +1502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &581134040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1654,7 +1594,7 @@ Transform:
   m_Children:
   - {fileID: 1844833419}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!58 &617711391
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1711,8 +1651,7 @@ MonoBehaviour:
     m_Bits: 512
   jumpForce: 800
   musicPlayer: {fileID: 1502349727}
-  checkPointParent: {fileID: 1652458122}
-  checkpoints: []
+  startPoint: {fileID: 527742108}
 --- !u!95 &617711395
 Animator:
   serializedVersion: 3
@@ -1775,8 +1714,7 @@ MonoBehaviour:
   beatType: 8
   loopTime: 30
   audioSource: {fileID: 1502349728}
-  observers:
-  - {fileID: 2141827718}
+  observers: []
 --- !u!4 &636063883
 Transform:
   m_ObjectHideFlags: 0
@@ -1847,6 +1785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &716193078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1940,6 +1879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &793016463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2097,6 +2037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &834142855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2237,6 +2178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &884847023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2330,6 +2272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &953348868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2423,6 +2366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &1053386974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2644,6 +2588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 1
+  doUpdates: 1
 --- !u!61 &1134125041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3041,7 +2986,7 @@ MonoBehaviour:
   loopTime: 30
   audioSource: {fileID: 1502349728}
   observers:
-  - {fileID: 716193074}
+  - {fileID: 2141827718}
 --- !u!1001 &1425682784
 Prefab:
   m_ObjectHideFlags: 0
@@ -3256,7 +3201,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &1502349730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3380,7 +3325,8 @@ MonoBehaviour:
   beatType: 8
   loopTime: 30
   audioSource: {fileID: 1502349728}
-  observers: []
+  observers:
+  - {fileID: 716193074}
 --- !u!1 &1550186326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,6 +3385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 1
   enabled: 1
+  doUpdates: 1
 --- !u!61 &1550186330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3632,57 +3579,6 @@ Prefab:
   m_RootGameObject: {fileID: 157113684}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1652458121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1652458122}
-  - 114: {fileID: 1652458123}
-  m_Layer: 0
-  m_Name: Checkpoints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1652458122
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1652458121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 527742108}
-  - {fileID: 131168961}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
---- !u!114 &1652458123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1652458121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96faf835cc7742b4089ec2e980336344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beatValue: 9
-  beatScalar: 1
-  beatOffset: 0
-  negativeBeatOffset: 0
-  beatType: 8
-  loopTime: 30
-  audioSource: {fileID: 1502349728}
-  observers:
-  - {fileID: 527742107}
-  - {fileID: 131168959}
 --- !u!1001 &1715166244
 Prefab:
   m_ObjectHideFlags: 0
@@ -3831,7 +3727,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1748079300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4050,6 +3946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &1856358926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4144,7 +4041,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &2110062238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,7 +4080,7 @@ Transform:
   - {fileID: 1594822996}
   - {fileID: 230476164}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &2141827718
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,6 +4139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysActive: 0
   enabled: 0
+  doUpdates: 1
 --- !u!61 &2141827722
 BoxCollider2D:
   m_ObjectHideFlags: 0

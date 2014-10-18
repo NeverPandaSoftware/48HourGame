@@ -11,6 +11,7 @@ public class Platform : MonoBehaviour
 
     public bool alwaysActive = false;
     public bool enabled = true;
+    public bool doUpdates = true;
 
 	// Use this for initialization
 	void Start ()
@@ -35,10 +36,13 @@ public class Platform : MonoBehaviour
         {
             if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
             {
-                if (enabled)
-                    Disable();
-                else
-                    Enable();
+                if (doUpdates)
+                {
+                    if (enabled)
+                        Disable();
+                    else
+                        Enable();
+                }
             }
         }
     }
