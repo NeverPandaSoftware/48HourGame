@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SynchronizerData;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
     public GameObject musicPlayer;
 
     private float move = 0.0f;
+    private int beats = 0;
+    private bool stoppedToDance = false;
+    private bool readyToMove = false;
+    private bool canMove = true;
 
     public Transform checkPointParent;
 
@@ -24,10 +29,15 @@ public class PlayerController : MonoBehaviour
     private int currentCheckPoint = 0;
     private float audioResetTime = 20.0f;
 
+    private RaycastHit2D platform;
+
+    private BeatObserver beatObserver;
+
 	// Use this for initialization
 	void Start ()
     {
         anim = GetComponent<Animator>();
+        beatObserver = GetComponent<BeatObserver>();
 
         List<Transform> checkpts = new List<Transform>();
 
@@ -42,20 +52,52 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
+        {
+            if (stoppedToDance)
+            {
+                if (beats < 3)
+                    beats++;
+                else
+                {
+                    beats = 0;
+                }
+            }
 
+            if (readyToMove && beats == 0)
+            {
+                canMove = true;
+                stoppedToDance = false;
+            }
+        }
 	}
 
     void FixedUpdate()
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
 
+        if (grounded)
+            platform = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
+
         anim.SetBool("Ground", grounded);
         anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
 
-        if (musicPlayer.GetComponent<AudioSource>().isPlaying)
+        if (musicPlayer.GetComponent<AudioSource>().isPlaying && canMove)
             move = moveSpeed;
         else
             move = 0;
+
+        if (Input.GetButton("Dance") && platform.transform.gameObject.GetComponent<Platform>().alwaysActive)
+        {
+            canMove = false;
+            stoppedToDance = true;
+            anim.SetBool("Dance", true);
+        }
+        else
+        {
+            anim.SetBool("Dance", false);
+            readyToMove = true;
+        }
 
         anim.SetFloat("Speed", Mathf.Abs(move));
 
