@@ -54,7 +54,10 @@
      <Compile Include="Assets\Scripts\BeatSynchronizer\PatternCounterEditor.cs" />
      <Compile Include="Assets\Scripts\BeatSynchronizer\SynchronizerData.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\GUIButtonStart.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
+     <Compile Include="Assets\Scripts\PlatformInitializer.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>

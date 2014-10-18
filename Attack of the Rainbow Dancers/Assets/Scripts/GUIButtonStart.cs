@@ -9,7 +9,7 @@ public class GUIButtonStart : MonoBehaviour
     {
         if(GUI.Button (new Rect(Screen.width / 2 - 63, Screen.height / 2 - 63, texture.width, texture.height), texture))
         {
-            Application.LoadLevel("Level1);"
+            Application.LoadLevel("Level1");
         }
 
     }

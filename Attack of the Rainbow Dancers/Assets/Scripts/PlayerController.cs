@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
+        grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
 
         //anim.SetBool("Ground", grounded);
         //anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
         rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 
-        if (grounded && Input.GetButtonDown("Jump"))
+        if (grounded && Input.GetButton("Jump"))
         {
             //anim.SetBool("Ground", false);
             rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.name == "Platform")
         {
-            grounded = true;
+            //grounded = true;
         }
     }
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.name == "Platform")
         {
-            grounded = false;
+            //grounded = false;
         } 
     }
 }
