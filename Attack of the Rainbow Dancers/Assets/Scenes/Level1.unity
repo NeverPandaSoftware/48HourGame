@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
-  enabled: 0
+  alwaysActive: 0
+  enabled: 1
 --- !u!61 &148570472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -271,7 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
-  enabled: 1
+  alwaysActive: 0
+  enabled: 0
 --- !u!61 &157113688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -581,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 0
+  alwaysActive: 0
   enabled: 1
 --- !u!114 &356781625
 MonoBehaviour:
@@ -751,6 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 9
+  alwaysActive: 0
   enabled: 0
 --- !u!61 &451320288
 BoxCollider2D:
@@ -1050,13 +1054,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d532dc7e2cbb464a994efa46404cf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
+  moveSpeed: 6
   grounded: 0
   groundCheck: {fileID: 1844833419}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
   jumpForce: 800
+  musicPlayer: {fileID: 1502349727}
 --- !u!95 &617711395
 Animator:
   serializedVersion: 3
@@ -1106,10 +1111,7 @@ MonoBehaviour:
   beatType: 8
   loopTime: 30
   audioSource: {fileID: 1502349728}
-  observers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  observers: []
 --- !u!4 &636063883
 Transform:
   m_ObjectHideFlags: 0
@@ -1226,7 +1228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
-  enabled: 1
+  alwaysActive: 0
+  enabled: 0
 --- !u!61 &884847023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1319,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
+  alwaysActive: 0
   enabled: 1
 --- !u!61 &1053386974
 BoxCollider2D:
@@ -1459,7 +1463,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e713f4e72289f1d4d809f6c9fb5ff205, type: 2}
       propertyPath: enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e713f4e72289f1d4d809f6c9fb5ff205, type: 2}
       propertyPath: m_LocalScale.x
@@ -1667,7 +1671,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 363b83a22f9550b4b9e8fc460f022698, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1740,7 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 115
-  startDelay: 1
+  startDelay: 0
 --- !u!1 &1539647213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
+  alwaysActive: 0
   enabled: 1
 --- !u!61 &1548033042
 BoxCollider2D:
@@ -1962,8 +1967,7 @@ MonoBehaviour:
   beatType: 8
   loopTime: 30
   audioSource: {fileID: 1502349728}
-  observers:
-  - {fileID: 0}
+  observers: []
 --- !u!4 &1604521340
 Transform:
   m_ObjectHideFlags: 0
@@ -2029,7 +2033,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e713f4e72289f1d4d809f6c9fb5ff205, type: 2}
       propertyPath: enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e713f4e72289f1d4d809f6c9fb5ff205, type: 2}
       propertyPath: m_LocalScale.x
@@ -2097,6 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
+  alwaysActive: 0
   enabled: 0
 --- !u!61 &1633425886
 BoxCollider2D:
@@ -2186,7 +2191,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e713f4e72289f1d4d809f6c9fb5ff205, type: 2}
       propertyPath: enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e713f4e72289f1d4d809f6c9fb5ff205, type: 2}
       propertyPath: m_LocalScale.x
@@ -2306,6 +2311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 7
+  alwaysActive: 0
   enabled: 0
 --- !u!61 &1735716563
 BoxCollider2D:
@@ -2528,6 +2534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatValue: 9
+  alwaysActive: 0
   enabled: 0
 --- !u!61 &1856358926
 BoxCollider2D:

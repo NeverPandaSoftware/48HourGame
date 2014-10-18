@@ -8,13 +8,23 @@ public class Platform : MonoBehaviour
     public BeatValue beatValue = BeatValue.None;
     BeatObserver beatObserver;
 
+    public bool alwaysActive = false;
     public bool enabled = true;
 
 	// Use this for initialization
 	void Start ()
     {
         beatObserver = GetComponent<BeatObserver>();
-        renderer.material.color = Color.green;
+        if (beatValue == BeatValue.None)
+            alwaysActive = true;
+
+        if (!alwaysActive)
+        {
+            if (enabled)
+                renderer.material.color = Color.green;
+            else
+                renderer.material.color = Color.red;
+        }
 	}
 	
 	// Update is called once per frame
@@ -22,10 +32,13 @@ public class Platform : MonoBehaviour
     {
         if ((beatObserver.beatMask & BeatType.DownBeat) == BeatType.DownBeat)
         {
-            if (enabled && beatValue != BeatValue.None)
-                Disable();
-            else
-                Enable();
+            if (!alwaysActive)
+            {
+                if (enabled)
+                    Disable();
+                else
+                    Enable();
+            }
         }
 
         /*timer -= Time.deltaTime;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    public float maxSpeed = 4;
+    public float moveSpeed = 6;
     bool facingRight = true;
 
     Animator anim;
@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     public float jumpForce = 2000;
 
+    public GameObject musicPlayer;
+
     private float move = 0.0f;
 
 	// Use this for initialization
 	void Start ()
     {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -31,18 +33,21 @@ public class PlayerController : MonoBehaviour
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, whatIsGround);
 
-        //anim.SetBool("Ground", grounded);
-        //anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
+        anim.SetBool("Ground", grounded);
+        anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
 
-        move = Input.GetAxis("Horizontal");
+        if (musicPlayer.GetComponent<AudioSource>().isPlaying)
+            move = moveSpeed;
+        else
+            move = 0;
 
-        //anim.SetFloat("Speed", Mathf.Abs(move));
+        anim.SetFloat("Speed", Mathf.Abs(move));
 
-        rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+        rigidbody2D.velocity = new Vector2(move, rigidbody2D.velocity.y);
 
         if (grounded && Input.GetButton("Jump"))
         {
-            //anim.SetBool("Ground", false);
+            anim.SetBool("Ground", false);
             rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
         }
 
