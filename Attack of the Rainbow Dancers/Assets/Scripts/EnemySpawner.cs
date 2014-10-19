@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
         {
             danceTime -= Time.deltaTime;
         }
+        Debug.Log(danceTime);
         
         if (timer > 0)
         {

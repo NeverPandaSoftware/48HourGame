@@ -56,7 +56,18 @@ public class Dancer : MonoBehaviour
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            switch (dancerType)
+            {
+                case DancerType.AngleFromLeft:
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+                    break;
+                case DancerType.Straight:
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+                    break;
+                case DancerType.AngleFromRight:
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+                    break;
+            }
         }
 	}
 }
