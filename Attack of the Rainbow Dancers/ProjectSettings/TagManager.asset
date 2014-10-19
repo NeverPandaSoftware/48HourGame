@@ -6,6 +6,7 @@ TagManager:
   - Platform
   - Checkpoint
   - Mob
+  - Dancer
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -47,4 +48,8 @@ TagManager:
   - name: Player
     userID: 1
     uniqueID: 2198465789
+    locked: 0
+  - name: Dancers
+    userID: 2
+    uniqueID: 3490398395
     locked: 0

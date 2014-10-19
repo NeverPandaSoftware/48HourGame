@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private float move = 0.0f;
     private bool dancing = false;
+    private bool consumedByDance = false;
+    private float danceTime = 0.0f;
 
     public Transform startPoint;
 
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         else
             move = 0;
 
-        if (Input.GetButton("Dance") && grounded)
+        if ((Input.GetButton("Dance") && grounded) || consumedByDance)
         {
             dancing = true;
             anim.SetBool("Dance", true);
@@ -91,6 +93,23 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Dancer")
+        {
+            consumedByDance = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Dancer")
+        {
+            Debug.Log("EXIT");
+            consumedByDance = false;
+        }
+    }
+
     void Respawn()
     {
         Debug.Log("RESPAWN");
@@ -126,5 +145,10 @@ public class PlayerController : MonoBehaviour
         {
             p.GetComponent<Platform>().doUpdates = true;
         }
+    }
+
+    public bool isDancing()
+    {
+        return dancing;
     }
 }
