@@ -5,16 +5,42 @@ public class Menu : MonoBehaviour
 {
     void OnGUI()
     {
-        if(GUI.Button(new Rect(Screen.width/2.5f, Screen.height/3,Screen.width/5,Screen.height/10), "Start Game"))
+        GUILayout.BeginArea(new Rect((Screen.width / 2) - (Screen.width / 16), (Screen.height / 2) + (Screen.height / 4), 200, Screen.height / 2));
+
+        if(GUILayout.Button("Start Brutal"))
+        {
+            PlayerPrefs.SetFloat("BrutalMode", 1);
+            Application.LoadLevel("Level1");
+        }
+
+        if (GUILayout.Button("Normal - Level 1"))
+        {
+            PlayerPrefs.SetFloat("BrutalMode", 0);
+            Application.LoadLevel("Level1");
+        }
+
+        if (GUILayout.Button("Normal - Level 2"))
+        {
+            PlayerPrefs.SetFloat("BrutalMode", 0);
+            Application.LoadLevel("Level1");
+        }
+
+        if (GUILayout.Button("Controls"))
         {
             Application.LoadLevel("Level1");
         }
 
-        if (GUI.Button(new Rect(Screen.width / 2.5f, Screen.height / 2, Screen.width / 5, Screen.height / 10), "Exit"))
+        if (GUILayout.Button("Credits"))
+        {
+            Application.LoadLevel("Level1");
+        }
+
+        if (GUILayout.Button("Exit"))
         {
             Application.Quit();
         }
 
+        GUILayout.EndArea();
 
     }
     	

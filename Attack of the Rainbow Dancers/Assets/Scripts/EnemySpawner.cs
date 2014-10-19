@@ -104,7 +104,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnAngleLeft()
     {
         Vector3 spawnLocation = new Vector3(player.transform.position.x - 5, player.transform.position.y + 8, 0);
-        GameObject dancer = (GameObject) Instantiate(dancerPreFabs[Random.Range(0, 2)], spawnLocation, Quaternion.identity);
+        GameObject dancer = (GameObject) Instantiate(dancerPreFabs[Random.Range(0, 3)], spawnLocation, Quaternion.identity);
         dancer.name = "Dancer";
         dancer.GetComponent<Dancer>().dancerType = DancerType.AngleFromLeft;
         dancer.GetComponent<Dancer>().player = player.transform;
@@ -113,7 +113,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnStraight()
     {
         Vector3 spawnLocation = new Vector3(player.transform.position.x, player.transform.position.y + 8, 0);
-        GameObject dancer = (GameObject)Instantiate(dancerPreFabs[Random.Range(0, 2)], spawnLocation, Quaternion.identity);
+        GameObject dancer = (GameObject)Instantiate(dancerPreFabs[Random.Range(0, 3)], spawnLocation, Quaternion.identity);
         dancer.name = "Dancer";
         dancer.GetComponent<Dancer>().dancerType = DancerType.Straight;
         dancer.GetComponent<Dancer>().player = player.transform;
@@ -122,7 +122,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnAngleRight()
     {
         Vector3 spawnLocation = new Vector3(player.transform.position.x + 5, player.transform.position.y + 8, 0);
-        GameObject dancer = (GameObject)Instantiate(dancerPreFabs[Random.Range(0, 2)], spawnLocation, Quaternion.identity);
+        GameObject dancer = (GameObject)Instantiate(dancerPreFabs[Random.Range(0, 3)], spawnLocation, Quaternion.identity);
         dancer.name = "Dancer";
         dancer.GetComponent<Dancer>().dancerType = DancerType.AngleFromRight;
         dancer.GetComponent<Dancer>().player = player.transform;

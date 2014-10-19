@@ -30,19 +30,24 @@ public class PlayerController : MonoBehaviour
     public GameObject AllTimeBestUFO;
     public GameObject PersonalBestUFO;
 
+    private GameObject atbUFO;
+    private GameObject pbUFO;
+
     public GameObject end;
     private bool atEnd = false;
 
 	// Use this for initialization
 	void Start ()
     {
+        musicPlayer.SetActive(true);
+
         anim = GetComponent<Animator>();
 
         float atb = PlayerPrefs.GetInt("highscorePos1");
 
         if (atb > 0)
         {
-            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(atb, 0), Quaternion.identity);
+            atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(atb, 0), Quaternion.identity);
             atbUFO.name = "AllTimeBest";
         }
         else
@@ -72,6 +77,12 @@ public class PlayerController : MonoBehaviour
     {
        
 	}
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, Screen.height - 35, 100, 50), "Lives: " + attempts);
+        GUI.Label(new Rect(10, Screen.height - 25, 100, 50), "Distance: " + Mathf.RoundToInt(transform.position.x - startPoint.transform.position.x) + "gm");
+    }
 
     void FixedUpdate()
     {
@@ -156,8 +167,10 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Finish")
         {
             anim.SetBool("End", true);
+            consumedByDance = false;
             atEnd = true;
             col.gameObject.GetComponent<HighScore>().OnLevelComplete(715);
+            AdvanceLevel();
         }
     }
 
@@ -188,10 +201,8 @@ public class PlayerController : MonoBehaviour
 
         GameObject[] dancers = GameObject.FindGameObjectsWithTag("Dancer");
 
-        foreach(GameObject d in dancers)
-        {
-            d.GetComponent<Dancer>().destroy(); ;
-        }
+        for (var i = 0; i < dancers.Length; i++)
+            dancers[i].GetComponent<Dancer>().destroy();
 
         musicPlayer.audio.Stop();
 
@@ -203,6 +214,22 @@ public class PlayerController : MonoBehaviour
         }
 
         musicPlayer.GetComponent<BeatSynchronizer>().RestartAudio();
+
+        float curX = transform.position.x;
+
+        if (curX > PlayerPrefs.GetFloat("AllTimeBest"))
+        {
+            PlayerPrefs.SetFloat("AllTimeBest", curX);
+            PlayerPrefs.Save();
+            atbUFO.transform.position = new Vector2(curX, atbUFO.transform.position.y);
+        }
+
+        if (curX > PlayerPrefs.GetFloat("PersonalBest"))
+        {
+            PlayerPrefs.SetFloat("AllTimeBest", curX);
+            PlayerPrefs.Save();
+            atbUFO.transform.position = new Vector3(curX, atbUFO.transform.position.y);
+        }
 
         transform.position = startPoint.transform.position;
     }
@@ -228,6 +255,12 @@ public class PlayerController : MonoBehaviour
     public bool isDancing()
     {
         return dancing;
+    }
+
+    public void AdvanceLevel()
+    {
+        PlayerPrefs.Save();
+        Application.LoadLevel("Menu");
     }
 
     public void EndGame()

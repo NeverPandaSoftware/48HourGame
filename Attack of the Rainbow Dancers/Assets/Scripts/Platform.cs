@@ -17,15 +17,22 @@ public class Platform : MonoBehaviour
 	void Start ()
     {
         startState = enabled;
+        //enabled = !enabled;
 
         beatObserver = GetComponent<BeatObserver>();
 
         if (!alwaysActive)
         {
             if (enabled)
-                renderer.material.color = Color.green;
+            {
+                //renderer.material.color = Color.green;
+                GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 1f);
+            }
             else
-                renderer.material.color = Color.red;
+            {
+                //renderer.material.color = Color.red;
+                GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, .3f);
+            }
         }
 	}
 	
@@ -50,14 +57,14 @@ public class Platform : MonoBehaviour
     void Disable()
     {
         enabled = false;
-        renderer.material.color = Color.red;
+        GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, .3f);
         collider2D.enabled = false;
     }
 
     void Enable()
     {
         enabled = true;
-        renderer.material.color = Color.green;
+        GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 1f);
         collider2D.enabled = true;
     }
 
