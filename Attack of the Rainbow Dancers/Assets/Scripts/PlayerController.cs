@@ -173,8 +173,6 @@ public class PlayerController : MonoBehaviour
         musicPlayer.GetComponent<BeatSynchronizer>().RestartAudio();
 
         transform.position = startPoint.transform.position;
-        GameObject mob = GameObject.FindGameObjectWithTag("Mob");
-        mob.GetComponent<Mob>().Reset();
     }
 
     void stopPlatformUpdates()
