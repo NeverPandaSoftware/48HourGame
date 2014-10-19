@@ -3270,6 +3270,7 @@ MonoBehaviour:
     m_Bits: 512
   jumpForce: 800
   musicPlayer: {fileID: 1502349727}
+  consumedByDance: 0
   startPoint: {fileID: 527742108}
   AllTimeBestUFO: {fileID: 100000, guid: f6a3cee107557a241823943c37cf4511, type: 2}
   PersonalBestUFO: {fileID: 100000, guid: ee9ee92ab97782e4bb9398586798845f, type: 2}
@@ -7847,7 +7848,7 @@ AudioSource:
   m_GameObject: {fileID: 1502349727}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 363b83a22f9550b4b9e8fc460f022698, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3c9ba42fa99f4ec4d91ea368beb59b76, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
