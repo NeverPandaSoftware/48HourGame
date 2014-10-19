@@ -9,9 +9,13 @@ public class EnemySpawner : MonoBehaviour
     private PlayerController player;
     private float danceTime = 0.0f;
 
+    public bool spawningEnabled = false;
+
     private float timer;
     private float spawnTime = 10;
 
+    private float starTimer;
+    public GameObject star;
     public GameObject dancerPreFab;
 
 	// Use this for initialization
@@ -24,6 +28,11 @@ public class EnemySpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (player.transform.position.x > 75 && !spawningEnabled)
+        {
+            InitialSpawn();
+        }
+
         dancing = player.isDancing();
 
         if (dancing)
@@ -35,17 +44,38 @@ public class EnemySpawner : MonoBehaviour
             danceTime -= Time.deltaTime;
         }
         Debug.Log(danceTime);
-        
-        if (timer > 0)
+
+        if (spawningEnabled)
         {
-            timer -= Time.deltaTime;
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                timer = spawnTime;
+                SpawnEnemy();
+            }
+        }
+
+        if (starTimer > 0)
+        {
+            starTimer -= Time.deltaTime;
         }
         else
         {
-            timer = spawnTime;
-            SpawnEnemy();
+            starTimer = Random.Range(3, 10);
+            Instantiate(star, new Vector2(player.transform.position.x + Random.Range(-5, 15), player.transform.position.y + 8), Quaternion.identity);
         }
 	}
+
+    void InitialSpawn()
+    {
+        SpawnStraight();
+        SpawnAngleRight();
+        SpawnAngleLeft();
+        spawningEnabled = true;
+    }
 
     void SpawnEnemy()
     {

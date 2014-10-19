@@ -4797,6 +4797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 617711388}
+  spawningEnabled: 0
+  star: {fileID: 100000, guid: 42822d695d502a543a04b42ba1a8097b, type: 2}
   dancerPreFab: {fileID: 100000, guid: cc9fbcf6a73c73e4f92546aec9d472dc, type: 2}
 --- !u!1 &944466418
 GameObject:
