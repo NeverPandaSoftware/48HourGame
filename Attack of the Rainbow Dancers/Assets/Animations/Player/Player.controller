@@ -338,7 +338,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: vSpeed
-    m_EventTreshold: 0
+    m_EventTreshold: .100000001
     m_ExitTime: .899999976
   m_Atomic: 1
   m_Solo: 0

@@ -24,7 +24,7 @@ public class Dancer : MonoBehaviour
 
         Animator anim = GetComponent<Animator>();
 
-        anim.GetComponent<Animation>()["Dance"].time = Random.Range(0, 20);
+        //anim.GetComponent<Animation>()["Dance"].time = Random.Range(0, 20);
 	}
 	
 	// Update is called once per frame
