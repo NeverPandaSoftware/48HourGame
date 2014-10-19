@@ -3284,7 +3284,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 617711388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.517395, y: .770434678, z: 0}
+  m_LocalPosition: {x: -43.5439873, y: .557704389, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1844833419}
@@ -3339,6 +3339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  attempts: 9
   grounded: 0
   groundCheck: {fileID: 1844833419}
   whatIsGround:
@@ -3347,6 +3348,8 @@ MonoBehaviour:
   jumpForce: 800
   musicPlayer: {fileID: 1502349727}
   startPoint: {fileID: 527742108}
+  AllTimeBestUFO: {fileID: 100000, guid: f6a3cee107557a241823943c37cf4511, type: 2}
+  PersonalBestUFO: {fileID: 100000, guid: ee9ee92ab97782e4bb9398586798845f, type: 2}
 --- !u!95 &617711395
 Animator:
   serializedVersion: 3
