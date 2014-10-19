@@ -3,39 +3,32 @@ using System.Collections;
 
 public class Menu : MonoBehaviour 
 {
+    public Texture2D startButton;
+    public Texture2D controlsButton;
+    public Texture2D creditsButton;
+    public Texture2D exitButton;
+
     void OnGUI()
     {
-        GUILayout.BeginArea(new Rect((Screen.width / 2) - (Screen.width / 16), (Screen.height / 2) + (Screen.height / 4), 200, Screen.height / 2));
+        GUILayout.BeginArea(new Rect((Screen.width / 2) + (Screen.width / 6), (Screen.height / 2) + (Screen.height / 6), 200, Screen.height / 2));
 
-        if(GUILayout.Button("Start Brutal"))
+        if(GUILayout.Button(startButton, GUIStyle.none))
         {
             PlayerPrefs.SetFloat("BrutalMode", 1);
             Application.LoadLevel("Level1");
         }
 
-        if (GUILayout.Button("Normal - Level 1"))
-        {
-            PlayerPrefs.SetFloat("BrutalMode", 0);
-            Application.LoadLevel("Level1");
-        }
-
-        if (GUILayout.Button("Normal - Level 2"))
-        {
-            PlayerPrefs.SetFloat("BrutalMode", 0);
-            Application.LoadLevel("Level1");
-        }
-
-        if (GUILayout.Button("Controls"))
+        if (GUILayout.Button(controlsButton, GUIStyle.none))
         {
             Application.LoadLevel("Level1");
         }
 
-        if (GUILayout.Button("Credits"))
+        if (GUILayout.Button(creditsButton, GUIStyle.none))
         {
-            Application.LoadLevel("Level1");
+            Application.LoadLevel("Level2");
         }
 
-        if (GUILayout.Button("Exit"))
+        if (GUILayout.Button(exitButton, GUIStyle.none))
         {
             Application.Quit();
         }

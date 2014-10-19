@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public bool spawningEnabled = false;
 
     private float timer;
-    private float spawnTime = 10;
+    public float spawnTime = 10;
 
     private float starTimer;
     public GameObject star;

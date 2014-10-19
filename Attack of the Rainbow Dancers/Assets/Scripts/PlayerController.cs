@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("highscorePos2", 100);
-            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 0), Quaternion.identity);
+            atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 0), Quaternion.identity);
             atbUFO.name = "AllTimeBest";
         }
 
@@ -61,13 +61,13 @@ public class PlayerController : MonoBehaviour
 
         if (pb > 0)
         {
-            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(pb, 0), Quaternion.identity);
+            pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(pb, 0), Quaternion.identity);
             pbUFO.name = "PersonalBest";
         }
         else
         {
             PlayerPrefs.SetFloat("PersonalBest", 50);
-            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(50, 0), Quaternion.identity);
+            pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(50, 0), Quaternion.identity);
             pbUFO.name = "PersonalBest";
         }
 	}
@@ -75,7 +75,8 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-       
+        atbUFO.transform.position = new Vector2(atbUFO.transform.position.x, transform.position.y + 3);
+        pbUFO.transform.position = new Vector2(pbUFO.transform.position.x, transform.position.y + 3);
 	}
 
     void OnGUI()
