@@ -39,13 +39,13 @@ public class PlayerController : MonoBehaviour
 
         if (atb > 0)
         {
-            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(atb, 3), Quaternion.identity);
+            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(atb, 0), Quaternion.identity);
             atbUFO.name = "AllTimeBest";
         }
         else
         {
             PlayerPrefs.SetFloat("AllTimeBest", 100);
-            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 3), Quaternion.identity);
+            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 0), Quaternion.identity);
             atbUFO.name = "AllTimeBest";
         }
 
@@ -53,13 +53,13 @@ public class PlayerController : MonoBehaviour
 
         if (pb > 0)
         {
-            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(pb, 3), Quaternion.identity);
+            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(pb, 0), Quaternion.identity);
             pbUFO.name = "PersonalBest";
         }
         else
         {
             PlayerPrefs.SetFloat("PersonalBest", 50);
-            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(50, 3), Quaternion.identity);
+            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(50, 0), Quaternion.identity);
             pbUFO.name = "PersonalBest";
         }
 	}
@@ -132,7 +132,6 @@ public class PlayerController : MonoBehaviour
 
             Respawn();
         }
-
     }
 
     void Flip()
@@ -150,6 +149,12 @@ public class PlayerController : MonoBehaviour
         {
             consumedByDance = true;
         }
+
+        if (col.gameObject.tag == "Finish")
+        {
+            anim.SetBool("End", true);
+            rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -158,6 +163,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("EXIT");
             //consumedByDance = false;
+        }
+
+        if (col.gameObject.tag == "Finish")
+        {
+            EndGame();
         }
     }
 
@@ -217,6 +227,7 @@ public class PlayerController : MonoBehaviour
 
     public void EndGame()
     {
+        PlayerPrefs.Save();
         Application.LoadLevel("Menu");
     }
 }
