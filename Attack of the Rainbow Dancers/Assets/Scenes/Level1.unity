@@ -5307,7 +5307,10 @@ MonoBehaviour:
   playerObject: {fileID: 617711388}
   spawningEnabled: 0
   star: {fileID: 100000, guid: 42822d695d502a543a04b42ba1a8097b, type: 2}
-  dancerPreFab: {fileID: 100000, guid: cc9fbcf6a73c73e4f92546aec9d472dc, type: 2}
+  dancerPreFabs:
+  - {fileID: 100000, guid: cc9fbcf6a73c73e4f92546aec9d472dc, type: 2}
+  - {fileID: 100000, guid: 1b33a710bb2ba8c4cbd08ec94f830752, type: 2}
+  - {fileID: 100000, guid: aba79741c285cd64388292e6428ae847, type: 2}
 --- !u!1 &944466418
 GameObject:
   m_ObjectHideFlags: 0
