@@ -36,7 +36,7 @@ public class Dancer : MonoBehaviour
             previousX = spawnLocation.x;
         }
 
-        if (player.gameObject.GetComponent<PlayerController>().isDancing())
+        if (player.gameObject.GetComponent<PlayerController>().isDancing() && !player.gameObject.GetComponent<PlayerController>().consumedByDance)
         {
             switch (dancerType)
             {

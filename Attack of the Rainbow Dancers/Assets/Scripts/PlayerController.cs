@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private float move = 0.0f;
     private bool dancing = false;
-    private bool consumedByDance = false;
+    public bool consumedByDance = false;
 
     public Transform startPoint;
 
@@ -82,15 +82,25 @@ public class PlayerController : MonoBehaviour
         else
             move = 0;
 
-        if ((Input.GetButton("Dance") && grounded) || consumedByDance)
+        if(consumedByDance)
         {
             dancing = true;
             anim.SetBool("Dance", true);
         }
+
+        if ((Input.GetButton("Dance") && grounded))
+        {
+            dancing = true;
+            consumedByDance = false;
+            anim.SetBool("Dance", true);
+        }
         else
         {
-            dancing = false;
-            anim.SetBool("Dance", false);
+            if (!consumedByDance)
+            {
+                dancing = false;
+                anim.SetBool("Dance", false);
+            }
         }
 
         anim.SetFloat("Speed", Mathf.Abs(move));
@@ -147,7 +157,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Dancer")
         {
             Debug.Log("EXIT");
-            consumedByDance = false;
+            //consumedByDance = false;
         }
     }
 
