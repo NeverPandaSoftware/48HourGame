@@ -22,13 +22,10 @@ public class PlayerController : MonoBehaviour
     private float move = 0.0f;
     private bool dancing = false;
     private bool consumedByDance = false;
-    private float danceTime = 0.0f;
 
     public Transform startPoint;
 
     private RaycastHit2D platform;
-
-    private BeatObserver beatObserver;
 
     public GameObject AllTimeBestUFO;
     public GameObject PersonalBestUFO;
@@ -37,18 +34,19 @@ public class PlayerController : MonoBehaviour
 	void Start ()
     {
         anim = GetComponent<Animator>();
-        beatObserver = GetComponent<BeatObserver>();
 
         float atb = PlayerPrefs.GetFloat("AllTimeBest");
 
         if (atb > 0)
         {
             GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(atb, 3), Quaternion.identity);
+            atbUFO.name = "AllTimeBest";
         }
         else
         {
             PlayerPrefs.SetFloat("AllTimeBest", 100);
             GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 3), Quaternion.identity);
+            atbUFO.name = "AllTimeBest";
         }
 
         float pb = PlayerPrefs.GetFloat("PersonalBest");
@@ -56,11 +54,13 @@ public class PlayerController : MonoBehaviour
         if (pb > 0)
         {
             GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(pb, 3), Quaternion.identity);
+            pbUFO.name = "PersonalBest";
         }
         else
         {
             PlayerPrefs.SetFloat("PersonalBest", 50);
             GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(50, 3), Quaternion.identity);
+            pbUFO.name = "PersonalBest";
         }
 	}
 	
@@ -159,6 +159,13 @@ public class PlayerController : MonoBehaviour
         if (attempts == 0)
         {
             EndGame();
+        }
+
+        GameObject[] dancers = GameObject.FindGameObjectsWithTag("Dancer");
+
+        foreach(GameObject d in dancers)
+        {
+            d.GetComponent<Dancer>().destroy(); ;
         }
 
         musicPlayer.audio.Stop();

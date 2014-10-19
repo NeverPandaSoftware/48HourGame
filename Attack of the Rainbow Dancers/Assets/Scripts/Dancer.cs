@@ -21,10 +21,6 @@ public class Dancer : MonoBehaviour
     {
         previousX = transform.position.x;
         spawnLocation = transform.position;
-
-        Animator anim = GetComponent<Animator>();
-
-        //anim.GetComponent<Animation>()["Dance"].time = Random.Range(0, 20);
 	}
 	
 	// Update is called once per frame
@@ -75,4 +71,10 @@ public class Dancer : MonoBehaviour
             }
         }
 	}
+
+    public void destroy()
+    {
+        Destroy(gameObject);
+        Debug.Log("DESTROY");
+    }
 }

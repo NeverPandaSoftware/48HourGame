@@ -5,7 +5,7 @@ public class CameraFollow : MonoBehaviour
 {
 
     public Transform target;
-    private float trackSpeed = 10;
+    //private float trackSpeed = 10;
     public float dampTime = 0.15f;
 
     public float camMinX = 0;
