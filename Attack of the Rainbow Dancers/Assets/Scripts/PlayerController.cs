@@ -173,6 +173,11 @@ public class PlayerController : MonoBehaviour
             col.gameObject.GetComponent<HighScore>().OnLevelComplete(715);
             AdvanceLevel();
         }
+
+        if (col.gameObject.tag == "EndCred")
+        {
+            Application.LoadLevel("Menu");
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)

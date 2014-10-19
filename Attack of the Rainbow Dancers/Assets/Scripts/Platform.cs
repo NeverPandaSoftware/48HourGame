@@ -34,6 +34,10 @@ public class Platform : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, .3f);
             }
         }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = new Color(255, 204, 0, 1f);
+        }
 	}
 	
 	// Update is called once per frame

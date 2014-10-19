@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
 
         if (GUILayout.Button(controlsButton, GUIStyle.none))
         {
-            Application.LoadLevel("Level1");
+            Application.LoadLevel("Controls");
         }
 
         if (GUILayout.Button(creditsButton, GUIStyle.none))
