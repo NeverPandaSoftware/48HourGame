@@ -21,6 +21,10 @@ public class Dancer : MonoBehaviour
     {
         previousX = transform.position.x;
         spawnLocation = transform.position;
+
+        Animator anim = GetComponent<Animator>();
+
+        anim.GetComponent<Animation>()["Dance"].time = Random.Range(0, 20);
 	}
 	
 	// Update is called once per frame
@@ -62,9 +66,10 @@ public class Dancer : MonoBehaviour
                     transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
                     break;
                 case DancerType.Straight:
-                    transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+                    transform.position = new Vector2(player.transform.position.x - 1, transform.position.y - (moveSpeed / 10) * Time.deltaTime);
                     break;
                 case DancerType.AngleFromRight:
+                    //transform.position = new Vector2(player.transform.position.x - 1, transform.position.y - (moveSpeed / 10) * Time.deltaTime);
                     transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
                     break;
             }

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 6;
     bool facingRight = true;
 
+    public int attempts = 9;
+
     Animator anim;
 
     public bool grounded = false;
@@ -28,11 +30,38 @@ public class PlayerController : MonoBehaviour
 
     private BeatObserver beatObserver;
 
+    public GameObject AllTimeBestUFO;
+    public GameObject PersonalBestUFO;
+
 	// Use this for initialization
 	void Start ()
     {
         anim = GetComponent<Animator>();
         beatObserver = GetComponent<BeatObserver>();
+
+        float atb = PlayerPrefs.GetFloat("AllTimeBest");
+
+        if (atb > 0)
+        {
+            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(atb, 3), Quaternion.identity);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("AllTimeBest", 100);
+            GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 3), Quaternion.identity);
+        }
+
+        float pb = PlayerPrefs.GetFloat("PersonalBest");
+
+        if (pb > 0)
+        {
+            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(pb, 3), Quaternion.identity);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("PersonalBest", 50);
+            GameObject pbUFO = (GameObject)Instantiate(PersonalBestUFO, new Vector2(50, 3), Quaternion.identity);
+        }
 	}
 	
 	// Update is called once per frame
@@ -80,7 +109,19 @@ public class PlayerController : MonoBehaviour
             Flip();
 
         if (transform.position.y < -100)
+        {
+            if (transform.position.x > PlayerPrefs.GetFloat("PersonalBest"))
+            {
+                PlayerPrefs.SetFloat("PersonalBest", transform.position.x);
+            }
+
+            if (transform.position.x > PlayerPrefs.GetFloat("AllTimeBest"))
+            {
+                PlayerPrefs.SetFloat("AllTimeBest", transform.position.x);
+            }
+
             Respawn();
+        }
 
     }
 
@@ -95,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Dancer")
+        if (col.gameObject.tag == "Dancer" && grounded)
         {
             consumedByDance = true;
         }
@@ -113,6 +154,13 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         Debug.Log("RESPAWN");
+        
+        attempts--;
+        if (attempts == 0)
+        {
+            EndGame();
+        }
+
         musicPlayer.audio.Stop();
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
@@ -150,5 +198,10 @@ public class PlayerController : MonoBehaviour
     public bool isDancing()
     {
         return dancing;
+    }
+
+    public void EndGame()
+    {
+        Application.LoadLevel("Menu");
     }
 }

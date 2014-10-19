@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 8811742739af6f64b8fe00cb0b68db50
+guid: 34e1ca0328426e94f8a1e2017c02b9b4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UFOIdlePersonalBestSheet_0
-    21300002: UFOIdlePersonalBestSheet_1
-    21300004: UFOIdlePersonalBestSheet_2
-    21300006: UFOIdlePersonalBestSheet_3
-    21300008: UFOIdlePersonalBestSheet_4
-    21300010: UFOIdlePersonalBestSheet_5
-    21300012: UFOIdlePersonalBestSheet_6
-    21300014: UFOIdlePersonalBestSheet_7
+    21300000: DaddioMcGrooveJumpSheet_0
+    21300002: DaddioMcGrooveJumpSheet_1
+    21300004: DaddioMcGrooveJumpSheet_2
+    21300006: DaddioMcGrooveJumpSheet_3
+    21300008: DaddioMcGrooveJumpSheet_4
+    21300010: DaddioMcGrooveJumpSheet_5
+    21300012: DaddioMcGrooveJumpSheet_6
+    21300014: DaddioMcGrooveJumpSheet_7
+    21300016: DaddioMcGrooveJumpSheet_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,83 +52,93 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: UFOIdlePersonalBestSheet_0
+    - name: DaddioMcGrooveJumpSheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 320
-        height: 320
+        y: 768
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_1
+    - name: DaddioMcGrooveJumpSheet_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
-        width: 320
-        height: 320
+        x: 384
+        y: 768
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_2
+    - name: DaddioMcGrooveJumpSheet_2
       rect:
         serializedVersion: 2
-        x: 640
-        y: 320
-        width: 320
-        height: 320
+        x: 768
+        y: 768
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_3
+    - name: DaddioMcGrooveJumpSheet_3
       rect:
         serializedVersion: 2
-        x: 960
-        y: 320
-        width: 320
-        height: 320
+        x: 0
+        y: 384
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_4
+    - name: DaddioMcGrooveJumpSheet_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DaddioMcGrooveJumpSheet_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DaddioMcGrooveJumpSheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_5
+    - name: DaddioMcGrooveJumpSheet_7
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 0
-        width: 320
-        height: 320
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_6
+    - name: DaddioMcGrooveJumpSheet_8
       rect:
         serializedVersion: 2
-        x: 640
+        x: 768
         y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdlePersonalBestSheet_7
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

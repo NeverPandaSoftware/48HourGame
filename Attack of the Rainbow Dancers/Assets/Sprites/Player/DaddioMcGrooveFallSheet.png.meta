@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-guid: 523c4054822a3da41ac935a724201574
+guid: 94b183568fb0d244c8261f9e40189fd7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UFOIdleSheet_0
-    21300002: UFOIdleSheet_1
-    21300004: UFOIdleSheet_2
-    21300006: UFOIdleSheet_3
-    21300008: UFOIdleSheet_4
-    21300010: UFOIdleSheet_5
-    21300012: UFOIdleSheet_6
-    21300014: UFOIdleSheet_7
+    21300000: DaddioMcGrooveFallSheet_0
+    21300002: DaddioMcGrooveFallSheet_1
+    21300004: DaddioMcGrooveFallSheet_2
+    21300006: DaddioMcGrooveFallSheet_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,83 +47,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: UFOIdleSheet_0
+    - name: DaddioMcGrooveFallSheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 320
-        height: 320
+        y: 384
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_1
+    - name: DaddioMcGrooveFallSheet_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
-        width: 320
-        height: 320
+        x: 384
+        y: 384
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 320
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 320
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_4
+    - name: DaddioMcGrooveFallSheet_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_5
+    - name: DaddioMcGrooveFallSheet_3
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_6
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UFOIdleSheet_7
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
+        width: 384
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
