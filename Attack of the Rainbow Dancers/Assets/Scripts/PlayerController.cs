@@ -30,12 +30,15 @@ public class PlayerController : MonoBehaviour
     public GameObject AllTimeBestUFO;
     public GameObject PersonalBestUFO;
 
+    public GameObject end;
+    private bool atEnd = false;
+
 	// Use this for initialization
 	void Start ()
     {
         anim = GetComponent<Animator>();
 
-        float atb = PlayerPrefs.GetFloat("AllTimeBest");
+        float atb = PlayerPrefs.GetInt("highscorePos1");
 
         if (atb > 0)
         {
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetFloat("AllTimeBest", 100);
+            PlayerPrefs.SetInt("highscorePos2", 100);
             GameObject atbUFO = (GameObject)Instantiate(AllTimeBestUFO, new Vector2(100, 0), Quaternion.identity);
             atbUFO.name = "AllTimeBest";
         }
@@ -77,7 +80,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Ground", grounded);
         anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
 
-        if (musicPlayer.GetComponent<AudioSource>().isPlaying)
+        if (musicPlayer.GetComponent<AudioSource>().isPlaying || atEnd)
             move = moveSpeed;
         else
             move = 0;
@@ -153,7 +156,8 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Finish")
         {
             anim.SetBool("End", true);
-            rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
+            atEnd = true;
+            col.gameObject.GetComponent<HighScore>().OnLevelComplete(715);
         }
     }
 
@@ -178,6 +182,7 @@ public class PlayerController : MonoBehaviour
         attempts--;
         if (attempts == 0)
         {
+            end.GetComponent<HighScore>().OnLevelComplete(Mathf.RoundToInt(transform.position.x));
             EndGame();
         }
 

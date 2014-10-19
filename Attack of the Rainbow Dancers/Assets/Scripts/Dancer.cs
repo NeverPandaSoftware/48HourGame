@@ -75,6 +75,5 @@ public class Dancer : MonoBehaviour
     public void destroy()
     {
         Destroy(gameObject);
-        Debug.Log("DESTROY");
     }
 }
