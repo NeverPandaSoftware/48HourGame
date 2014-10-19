@@ -1,0 +1,41 @@
+Initialize engine version: 4.5.3f3 (fca41a4fabea)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7500M/7600M Series (ID=0x6841)
+    Vendor:   ATI
+    VRAM:     1011 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Student Data\My Documents\GitHub\48HourGame\48HourGame\Attack of the Rainbow Dancers\Attack of the Rainbow Dancers v1.0.1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Student Data\My Documents\GitHub\48HourGame\48HourGame\Attack of the Rainbow Dancers\Attack of the Rainbow Dancers v1.0.1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Student Data\My Documents\GitHub\48HourGame\48HourGame\Attack of the Rainbow Dancers\Attack of the Rainbow Dancers v1.0.1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Student Data\My Documents\GitHub\48HourGame\48HourGame\Attack of the Rainbow Dancers\Attack of the Rainbow Dancers v1.0.1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.121 seconds
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found.
+<RI> Input initialized.
+UnloadTime: 0.565698 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 878.
+Total: 6.785096 ms (FindLiveObjects: 0.072251 ms CreateObjectMapping: 0.033252 ms MarkObjects: 0.349764 ms  DeleteObjects: 5.425449 ms)
+
+UnloadTime: 3.378180 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 306 unused Assets to reduce memory usage. Loaded Objects now: 148.
+Total: 8.787210 ms (FindLiveObjects: 0.047209 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.185555 ms  DeleteObjects: 7.583560 ms)
+
+UnloadTime: 0.686391 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 880.
+Total: 7.284290 ms (FindLiveObjects: 0.080872 ms CreateObjectMapping: 0.041462 ms MarkObjects: 0.421605 ms  DeleteObjects: 5.825708 ms)
+
+UnloadTime: 1.663842 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 306 unused Assets to reduce memory usage. Loaded Objects now: 147.
+Total: 9.582388 ms (FindLiveObjects: 0.046799 ms CreateObjectMapping: 0.021347 ms MarkObjects: 0.216755 ms  DeleteObjects: 8.400908 ms)
+
