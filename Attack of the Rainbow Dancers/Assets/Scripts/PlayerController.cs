@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 2000;
 
     public GameObject musicPlayer;
+    private bool musicStarted = false;
 
     private float move = 0.0f;
     private bool dancing = false;
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        musicPlayer.SetActive(true);
+        //musicPlayer.SetActive(true);
 
         anim = GetComponent<Animator>();
 
@@ -75,6 +76,12 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (!Application.isLoadingLevel && !musicStarted)
+        {
+            musicPlayer.SetActive(true);
+            musicStarted = true;
+        }
+
         atbUFO.transform.position = new Vector2(atbUFO.transform.position.x, transform.position.y + 3);
         pbUFO.transform.position = new Vector2(pbUFO.transform.position.x, transform.position.y + 3);
 	}
@@ -170,7 +177,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("End", true);
             consumedByDance = false;
             atEnd = true;
-            col.gameObject.GetComponent<HighScore>().OnLevelComplete(715);
+            //col.gameObject.GetComponent<HighScore>().OnLevelComplete(715);
             AdvanceLevel();
         }
 
@@ -180,31 +187,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Dancer")
-        {
-            Debug.Log("EXIT");
-            //consumedByDance = false;
-        }
-
-        if (col.gameObject.tag == "Finish")
-        {
-            EndGame();
-        }
-    }
-
     void Respawn()
     {
-        Debug.Log("RESPAWN");
-        
-        attempts--;
-        if (attempts == 0)
-        {
-            end.GetComponent<HighScore>().OnLevelComplete(Mathf.RoundToInt(transform.position.x));
-            EndGame();
-        }
-
         GameObject[] dancers = GameObject.FindGameObjectsWithTag("Dancer");
 
         for (var i = 0; i < dancers.Length; i++)
@@ -232,12 +216,19 @@ public class PlayerController : MonoBehaviour
 
         if (curX > PlayerPrefs.GetFloat("PersonalBest"))
         {
-            PlayerPrefs.SetFloat("AllTimeBest", curX);
+            PlayerPrefs.SetFloat("PersonalBest", curX);
             PlayerPrefs.Save();
-            atbUFO.transform.position = new Vector3(curX, atbUFO.transform.position.y);
+            pbUFO.transform.position = new Vector3(curX, pbUFO.transform.position.y);
         }
 
         transform.position = startPoint.transform.position;
+
+        attempts--;
+        if (attempts <= 0)
+        {
+            //end.GetComponent<HighScore>().OnLevelComplete(Mathf.RoundToInt(transform.position.x));
+            EndGame();
+        }
     }
 
     void stopPlatformUpdates()
@@ -266,7 +257,7 @@ public class PlayerController : MonoBehaviour
     public void AdvanceLevel()
     {
         PlayerPrefs.Save();
-        Application.LoadLevel("Menu");
+        Application.LoadLevel("Level2");
     }
 
     public void EndGame()

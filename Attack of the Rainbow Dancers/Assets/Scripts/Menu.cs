@@ -14,7 +14,6 @@ public class Menu : MonoBehaviour
 
         if(GUILayout.Button(startButton, GUIStyle.none))
         {
-            PlayerPrefs.SetFloat("BrutalMode", 1);
             Application.LoadLevel("Level1");
         }
 
